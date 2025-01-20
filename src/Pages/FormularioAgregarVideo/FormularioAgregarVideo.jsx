@@ -11,9 +11,9 @@ import {
   Switch,
   Alert,
 } from "@mui/material";
-import { getCategorias } from "../../Api/Api"; // Función que consulta MockAPI
+import { getCategorias } from "../../../Api/Api"; // Función que consulta MockAPI
 import { v4 as uuidv4 } from "uuid";
-import "./FormularioAgregarVideo.css"; // Archivo CSS adicional
+import "./FormularioAgregarVideo.css";
 
 const FormularioAgregarVideo = ({ onSubmit }) => {
   const [categorias, setCategorias] = useState([]);

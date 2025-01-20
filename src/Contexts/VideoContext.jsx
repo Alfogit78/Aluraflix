@@ -7,7 +7,7 @@ import {
   addVideo, // Llamada a MockAPI para agregar video
   updateVideo, // Llamada a MockAPI para actualizar video
   deleteVideo, // Llamada a MockAPI para eliminar video
-} from "../../src/Api/Api";
+} from "../../Api/Api";
 
 const VideoContext = createContext();
 
