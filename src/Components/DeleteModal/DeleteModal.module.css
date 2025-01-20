@@ -1,0 +1,139 @@
+/** @format */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-width: 420px;
+  width: 90%;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaciado más proporcional entre los elementos */
+  align-items: center;
+  text-align: center;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.2rem; /* Tamaño reducido para móviles */
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.closeIcon:hover {
+  color: #f44336;
+}
+
+h2 {
+  color: #333;
+  font-size: 1.1rem; /* Tamaño más pequeño para móviles */
+  margin: 0;
+}
+
+.formButtons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.button-delete,
+.button-close {
+  flex: 1;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 12px; /* Ajustado para ser más compacto */
+  border-radius: 5px;
+  font-size: 0.9rem; /* Texto más pequeño */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-delete:hover {
+  background-color: #d32f2f; /* Color más oscuro en hover */
+}
+
+.button-close {
+  background-color: #4caf50; /* Verde para botón de cerrar */
+}
+
+.button-close:hover {
+  background-color: #388e3c;
+}
+
+/* Responsive Design */
+
+/* Para pantallas pequeñas (max-width: 480px) */
+@media (max-width: 480px) {
+  .modal {
+    max-width: 300px; /* Reducir el tamaño del modal */
+    padding: 15px; /* Menor espaciado interno */
+  }
+
+  .modalContent {
+    gap: 10px; /* Espaciado más ajustado */
+  }
+
+  h2 {
+    font-size: 1rem; /* Reducir aún más el tamaño del título */
+  }
+
+  .button-delete,
+  .button-close {
+    font-size: 0.8rem; /* Botones más pequeños */
+    padding: 6px 10px; /* Reducir el relleno */
+  }
+}
+
+/* Para pantallas medianas (481px - 1024px) */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .modal {
+    max-width: 450px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 1.2rem; /* Ajustar el tamaño del título */
+  }
+
+  .button-delete,
+  .button-close {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+}
+
+/* Para pantallas grandes (1025px y mayores) */
+@media (min-width: 1025px) {
+  .modal {
+    max-width: 500px; /* Modal más ancho en pantallas grandes */
+    padding: 25px; /* Más espacio interno */
+  }
+
+  .modalContent {
+    gap: 20px; /* Más espacio entre los elementos */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Título más grande en pantallas grandes */
+  }
+
+  .button-delete,
+  .button-close {
+    font-size: 1rem; /* Botones más grandes */
+    padding: 12px 20px; /* Más espacio interno */
+  }
+}

@@ -1,0 +1,49 @@
+/** @format */
+
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.1em 10em;
+  background-color: var(--negro);
+}
+a {
+  text-decoration: none;
+}
+
+.logoContainer {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.cabecera img {
+  align-self: start;
+}
+
+.cabecera span {
+  align-self: end;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+  margin-left: 8px;
+  font-size: 1.5rem;
+}
+
+/* Estilos para pantallas entre 768px y 1037px */
+@media (min-width: 768px) and (max-width: 1037px) {
+  .cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--negro);
+  }
+}
+
+/* Responsive para pantallas pequeñas (max-width: 767px) */
+@media (max-width: 767px) {
+  .cabecera {
+    display: none;
+  }
+}

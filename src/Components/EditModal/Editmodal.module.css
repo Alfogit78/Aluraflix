@@ -1,0 +1,164 @@
+/** @format */
+
+.modal {
+  position: fixed; /* Fijo en la pantalla */
+  top: 50%; /* Centrado verticalmente */
+  left: 50%; /* Centrado horizontalmente */
+  transform: translate(-50%, -50%); /* Asegura el centrado exacto */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  max-width: 500px; /* Ancho máximo */
+  width: 100%; /* Asegura que no se desborde */
+  padding: 20px; /* Espaciado interno */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  text-align: left; /* Asegura que el texto del label esté a la izquierda */
+  width: 100%; /* Ocupar todo el ancho disponible */
+  font-weight: 500;
+  color: #555;
+}
+
+input,
+textarea,
+select {
+  width: calc(100% - 10px); /* Ajuste del ancho para alinearlo con el padding */
+  max-width: 100%; /* Evitar que se desborden del contenedor */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  box-sizing: border-box; /* Garantiza que el ancho incluya el padding */
+}
+
+textarea {
+  resize: vertical; /* Permitir el cambio de tamaño vertical */
+  height: 80px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center; /* Centrar los botones dentro del formulario */
+  gap: 15px; /* Espaciado uniforme entre los botones */
+  width: 100%; /* Asegurar el alineamiento con el formulario */
+}
+
+.saveButton,
+.resetButton {
+  background-color: #4a90e2; /* Fondo azul */
+  color: #ffffff; /* Texto blanco */
+  border: none;
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 12px 20px;
+  font-size: 1rem; /* Tamaño del texto */
+  cursor: pointer; /* Manita al pasar el mouse */
+  flex: 1; /* Asegura que ambos botones tengan el mismo tamaño */
+  max-width: 150px; /* Ancho máximo para botones */
+  text-align: center; /* Centrar el texto */
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.saveButton:hover,
+.resetButton:hover {
+  background-color: #357abd; /* Azul más oscuro al pasar el mouse */
+  transform: scale(1.05); /* Ligeramente más grande */
+}
+
+.closeButton:hover {
+  color: #f44336; /* Color rojo al pasar el cursor */
+}
+
+/* Responsive Design */
+
+/* Para pantallas pequeñas (max-width: 768px) */
+@media (max-width: 768px) {
+  .modal {
+    max-width: 90%; /* Reducir el ancho en pantallas pequeñas */
+    padding: 15px; /* Ajustar el padding interno */
+    border-radius: 8px; /* Ajustar bordes redondeados */
+  }
+
+  h2 {
+    font-size: 1.2rem; /* Reducir el tamaño del título */
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 0.9rem; /* Reducir tamaño de texto */
+    padding: 8px; /* Reducir espaciado interno */
+  }
+
+  .buttons {
+    flex-direction: column; /* Los botones se apilan verticalmente */
+    gap: 10px; /* Ajustar el espacio entre botones */
+  }
+
+  .saveButton,
+  .resetButton {
+    max-width: 100%; /* Los botones ocupan todo el ancho disponible */
+    padding: 10px; /* Ajustar espaciado interno */
+  }
+}
+
+/* Para pantallas medianas (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .modal {
+    max-width: 75%; /* Ajustar el ancho */
+    padding: 20px; /* Espaciado interno adecuado */
+    border-radius: 10px;
+  }
+
+  .buttons {
+    gap: 15px; /* Espaciado más uniforme */
+  }
+
+  .saveButton,
+  .resetButton {
+    max-width: 200px; /* Limitar el tamaño en tabletas */
+  }
+}
+
+/* Para pantallas grandes (más de 1024px) */
+@media (min-width: 1024px) {
+  .modal {
+    max-width: 500px; /* Mantener el tamaño estándar */
+    padding: 25px;
+  }
+
+  .saveButton,
+  .resetButton {
+    max-width: 150px; /* Ancho definido */
+    padding: 12px 20px;
+  }
+}

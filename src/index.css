@@ -1,0 +1,24 @@
+/** @format */
+
+:root {
+  --font: "Montserrat", sans-serif;
+  --negro: #191919;
+  --blanco: #fff;
+}
+
+body {
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Esto evitará cualquier desbordamiento horizontal */
+}
+
+main{
+  background-color: #d2d6df;
+}

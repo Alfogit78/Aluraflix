@@ -1,0 +1,7 @@
+{
+  "routes": {
+    "/categorias": "/categorias",
+    "/videos": "/videos",
+    "/db/:categoria": "/categorias/:categoria/videos"
+  }
+}

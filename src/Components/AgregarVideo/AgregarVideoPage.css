@@ -1,0 +1,198 @@
+/** @format */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+.titulo-container {
+  padding: 10px;
+  border: 2px solid #cfd0d3;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
+
+.agregar-form {
+  background-color: #f9f9f9;
+  height: auto;
+  min-height: 100vh;
+  color: white;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.form-titulo-uno,
+.form-titulo-dos,
+.form-subtitulo {
+  color: #404041;
+  padding: 5px 10px;
+  margin: auto;
+  border: 1px solid #303a72;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.form-titulo-uno {
+  font-size: 24px;
+  margin-bottom: 5px;
+  text-align: center; /* Centramos este título */
+}
+
+.form-titulo-dos {
+  margin-bottom: 5px;
+  font-weight: 300;
+}
+
+.form-subtitulo {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+
+.botones-formulario {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Aplicar el estilo a los botones */
+.boton-agregar,
+.boton-limpiar {
+  background-color: #4a90e2;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  width: 180px;
+  text-align: center;
+}
+
+.boton-agregar:hover,
+.boton-limpiar:hover {
+  background-color: #357abd;
+  transform: scale(1.05);
+}
+
+.botones-formulario {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+/* Aplicar el estilo a los botones */
+.boton-agregar,
+.boton-limpiar {
+  background-color: #4a90e2;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  width: 180px;
+  text-align: center;
+}
+
+.boton-agregar:hover,
+.boton-limpiar:hover {
+  background-color: #357abd;
+  transform: scale(1.05);
+}
+
+.tabla-formulario {
+  display: table;
+  margin: auto; /* Centro la tabla en el contenedor */
+  margin-bottom: 20px;
+}
+
+.fila {
+  display: table-row;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .agregar-form {
+    display: flex;
+    flex-direction: column; /* Mantiene la estructura vertical */
+    justify-content: space-between; /* Asegura que el contenido esté distribuido */
+    background-color: #f9f9f9;
+    height: auto;
+    min-height: 90vh; /* Ocupa toda la altura disponible */
+    box-sizing: border-box;
+    margin-bottom: 0; /* Evita margen adicional */
+    padding: 20px; /* Espaciado más cómodo */
+  }
+
+  /* Ajuste específico para el footer */
+  footer {
+    margin-top: 0; /* Empuja el footer al final del contenedor */
+    background-color: #222; /* Fondo oscuro para el footer */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centrado horizontalmente */
+    padding: 5px 0; /* Espaciado interno */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  }
+}
+
+@media (max-width: 768px) {
+  .agregar-form {
+    background-color: #f9f9f9;
+    height: auto; /* Altura dinámica basada en el contenido */
+    min-height: 100vh; /* Asegura que ocupe la pantalla completa */
+    box-sizing: border-box;
+    padding: 5px;
+  }
+
+  .titulo-container {
+    text-align: center; /* Centrar los títulos en dispositivos pequeños */
+    margin-bottom: 20px;
+  }
+
+  .form-subtitulo {
+    font-size: 1rem; /* Ajusta el tamaño de los subtítulos */
+    margin-bottom: 10px;
+  }
+
+  form {
+    width: 100%; /* Asegura que el formulario ocupe el ancho completo */
+    max-width: 600px; /* Máximo ancho en dispositivos pequeños */
+    margin: 0 auto;
+  }
+
+  .formulario-agregar-video {
+    display: flex;
+    margin-top: 0; /* Elimina margen superior si es necesario */
+    padding-top: 5px; /* Ajusta padding superior si es necesario */
+    width: 80%;
+  }
+
+  footer {
+    margin-top: auto; /* Coloca el footer al final */
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%; /* Ocupa todo el ancho */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+
+  /* Botones ajustados */
+  .botones-formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espaciado entre botones */
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}

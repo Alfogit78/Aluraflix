@@ -1,0 +1,191 @@
+/** @format */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Asegura que el documento ocupe toda la altura */
+  overflow-x: hidden; /* Evita scroll horizontal innecesario */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ocupa toda la altura de la ventana */
+}
+
+.formulario-agregar-video {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaciado uniforme entre los elementos */
+  padding: 30px;
+  background-color: #f8fafa; /* Tono antes del negro */
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra elegante */
+  width: 90%; /* Asegura que el formulario sea responsivo */
+  max-width: 700px; /* Tamaño máximo en pantallas grandes */
+  margin: auto; /* Centrado en el viewport */
+}
+
+/* Estructura de dos columnas */
+.fila-dos-columnas {
+  display: flex;
+  gap: 20px; /* Espaciado entre las columnas */
+}
+
+/* Campos individuales del formulario */
+.campo-titulo,
+.campo-url-imagen,
+.campo-url-video,
+.campo-select-categoria {
+  flex: 1;
+}
+
+/* Campo de descripción */
+.campo-descripcion-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaciado entre etiqueta, textarea y error */
+  width: 50%; /* Ocupa el 50% del ancho disponible */
+  margin: 0; /* Centrado horizontalmente */
+}
+
+.campo-descripcion-label {
+  font-size: 1rem; /* Tamaño de texto legible */
+  color: #0e0d0d; /* Texto blanco */
+}
+
+.campo-descripcion-textarea {
+  width: 100%; /* Ocupa todo el contenedor */
+  height: 35vh; /* Ajusta la altura al 35% del viewport */
+  min-height: 200px; /* Altura mínima */
+  max-height: 400px; /* Altura máxima opcional */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño del texto */
+  resize: vertical; /* Permite redimensionar verticalmente */
+  background-color: #f8fafa; /* Fondo gris oscuro */
+  color: #ffffff; /* Texto blanco */
+  border: 1px solid #4a90e2; /* Bordes azul claro */
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+.campo-descripcion-textarea:focus {
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.8); /* Efecto azul brillante */
+  outline: none;
+  transform: scale(1.02); /* Ligeramente más grande al enfocarse */
+}
+
+.error-mensaje {
+  color: #ffdab9; /* Mensaje de error en tono beige */
+  font-size: 0.9rem; /* Tamaño reducido para no interferir */
+}
+
+/* Estilos genéricos para inputs, textarea y select */
+input,
+textarea,
+select {
+  background-color: #2b2b40; /* Fondo gris oscuro */
+  color: #ffffff; /* Texto blanco */
+  border: 1px solid #4a90e2; /* Bordes azul claro */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño del texto */
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+/* Efectos al enfocar inputs */
+input:focus,
+select:focus {
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.8); /* Efecto azul brillante */
+  outline: none;
+  transform: scale(1.02); /* Ligeramente más grande al enfocarse */
+}
+
+.campo-descripcion-textarea {
+  all: unset; /* Resetea las reglas de estilo predeterminadas */
+  width: 100%; /* Asegura que ocupe todo el contenedor */
+  min-height: 200px; /* Altura mínima */
+  max-height: 400px; /* Altura máxima */
+  padding: 10px; /* Espaciado interno */
+  border: 1px solid #ccc; /* Bordes neutros */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 1rem; /* Tamaño de texto */
+  color: #000000; /* Texto negro */
+  background-color: #ffffff; /* Fondo blanco */
+  resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.campo-descripcion-textarea:focus {
+  outline: none; /* Sin contornos al enfocarse */
+  border-color: #4a90e2; /* Bordes azules al enfocarse */
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.8); /* Resplandor azul suave */
+}
+
+
+/* Mensaje de error */
+.error-mensaje {
+  color: #ff6b6b; /* Rojo accesible para errores */
+  font-size: 0.9rem;
+}
+
+/* Botones */
+.boton-agregar,
+.boton-limpiar {
+  background-color: #4a90e2; /* Fondo azul */
+  color: #ffffff; /* Texto blanco */
+  border: none;
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 12px 20px;
+  font-size: 1rem; /* Tamaño del texto */
+  cursor: pointer; /* Manita al pasar el mouse */
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+/* Hover en botones */
+.boton-agregar:hover,
+.boton-limpiar:hover {
+  background-color: #357abd; /* Azul más oscuro al pasar el mouse */
+  transform: scale(1.05); /* Ligeramente más grande */
+}
+
+/* Contenedor de los botones */
+.botones-formulario {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px; /* Espaciado superior */
+}
+
+/* Switch destacado */
+.campo-switch-destacado {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espaciado entre el switch y el texto */
+}
+
+/* Ajuste del espaciado entre filas */
+.fila-dos-columnas > * {
+  margin-bottom: 10px; /* Espaciado entre los campos */
+}
+
+/* Alertas de éxito */
+.MuiAlert-root {
+  background-color: #28a745 !important; /* Verde éxito */
+  color: white !important; /* Texto blanco */
+}
+
+/* Transiciones y animaciones adicionales */
+.formulario-agregar-video,
+input,
+textarea,
+select,
+button {
+  transition: all 0.3s ease-in-out; /* Transición suave para todo */
+}
