@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaTimes } from "react-icons/fa";
-import styles from "./EditModal.module.css";
+import styles from "./Editmodal.module.css";
 import { updateVideo } from "../../../Api/Api";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Switch from "@mui/material/Switch";
