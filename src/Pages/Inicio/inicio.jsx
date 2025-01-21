@@ -1,11 +1,11 @@
 /** @format */
 
 import React, { useEffect, useState, useMemo } from "react";
-import EditModal from "../../components/EditModal/EditModal";
-import DeleteModal from "../../components/DeleteModal/DeleteModal";
-import { useVideos } from "../../contexts/VideoContext";
-import Banner from "../../components/Banner/index";
-import VideoList from "../../pages/videolist/VideoList";
+import EditModal from "../../Components/EditModal/EditModal";
+import DeleteModal from "../../Components/DeleteModal/DeleteModal";
+import { useVideos } from "../../Contexts/VideoContext";
+import Banner from "../../Components/Banner/index";
+import VideoList from "../../Pages/videolist/VideoList";
 import "./Inicio.css";
 
 function Inicio() {
