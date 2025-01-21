@@ -3,11 +3,11 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Inicio from "./Pages/Inicio/inicio";
-import AgregarVideoPage from "./components/AgregarVideo/AgregarVideoPage";
+import AgregarVideoPage from "./Components/AgregarVideo/AgregarVideoPage";
 import Cabecera from "./components/Cabecera/Cabecera";
 import Pie from "./components/Pie/Pie";
 import axios from "axios";
-import { VideoProvider } from "./Contexts/VideoContext"; // Asegúrate de importar VideoProvider
+import { VideoProvider } from "./Contexts/VideoContext";
 import PageNotFound from "./Pages/NotFound/PageNotFound";
 
 const App = () => {
