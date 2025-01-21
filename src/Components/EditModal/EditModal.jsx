@@ -4,17 +4,18 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { FaTimes } from "react-icons/fa";
 import styles from "./EditModal.module.css";
+import { updateVideo } from "../../../Api/Api";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Switch from "@mui/material/Switch";
 
-const EditModal = ({ video, categorias, onClose, onSave }) => {
-  // Estado que controla los datos visuales del formulario
+const EditModal = ({ video, categorias, onClose, onSave, videos }) => {
   const [formData, setFormData] = useState({ ...video });
-  // Estado para los datos visuales que se usan en el formulario (copia)
   const [formDataVisible, setFormDataVisible] = useState({ ...video });
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   useEffect(() => {
-    // Solo se actualiza cuando se cierra o se abre el modal (restaurar el estado original)
     setFormData({ ...video });
-    setFormDataVisible({ ...video }); // Resetear la vista
+    setFormDataVisible({ ...video });
   }, [video]);
 
   const handleChange = (e) => {
@@ -28,44 +29,45 @@ const EditModal = ({ video, categorias, onClose, onSave }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Si no hay cambios, no hacemos nada
     if (JSON.stringify(formData) === JSON.stringify(formDataVisible)) {
       console.log("No hay cambios");
       return;
     }
 
-    // Aquí realizamos el PUT si hay cambios en formData
-    try {
-      const response = await fetch(
-        `https://678d6e91f067bf9e24ea4990.mockapi.io/api/v1/videos/${formData.id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formDataVisible), // Enviar los datos visibles modificados
-        }
+    // Verificar y ajustar el campo destacado
+    const updatedData = { ...formDataVisible };
+    if (formDataVisible.destacado) {
+      // logica para destacar videos
+      const otherHighlightedVideos = videos.filter(
+        (video) => video.destacado && video.id !== formDataVisible.id
       );
-
-      if (response.ok) {
-        const updatedVideo = await response.json();
-        onSave(updatedVideo); // Notificar al componente padre sobre los cambios
-      } else {
-        console.error("Error al actualizar el video:", response.statusText);
+      for (let otherVideo of otherHighlightedVideos) {
+        await updateVideo(otherVideo.id, { ...otherVideo, destacado: false });
       }
+    }
+
+    try {
+      const updatedVideo = await updateVideo(formData.id, updatedData);
+      onSave(updatedVideo);
+      setShowConfirmation(true); // Mostrar el mensaje de confirmación
+
+      // Ocultar el mensaje de confirmación después de 3 segundos
+      setTimeout(() => {
+        setShowConfirmation(false);
+      }, 3000);
     } catch (error) {
       console.error("Error al conectar con la API:", error);
     }
   };
 
   const handleReset = () => {
-    // Solo restablecer la vista sin afectar el estado original de formData
     setFormDataVisible({
       titulo: "",
       descripcion: "",
       url: "",
       urlImagen: "",
       categoriaId: "",
+      destacado: false,
     });
   };
 
@@ -142,6 +144,18 @@ const EditModal = ({ video, categorias, onClose, onSave }) => {
             placeholder="Descripción"
             required
           />
+          <FormControlLabel
+            control={
+              <Switch
+                name="destacado"
+                checked={formDataVisible.destacado}
+                onChange={handleChange}
+                color="primary"
+              />
+            }
+            label="Destacar Video"
+            className="campo-switch-destacado"
+          />
           <div className={styles.buttons}>
             <button type="submit" className={styles.saveButton}>
               Guardar Cambios
@@ -155,6 +169,11 @@ const EditModal = ({ video, categorias, onClose, onSave }) => {
             </button>
           </div>
         </form>
+        {showConfirmation && (
+          <div className={styles.confirmation}>
+            La edición fue realizada correctamente
+          </div>
+        )}
       </div>
     </div>
   );
@@ -165,6 +184,7 @@ EditModal.propTypes = {
   categorias: PropTypes.array.isRequired,
   onClose: PropTypes.func.isRequired,
   onSave: PropTypes.func.isRequired,
+  videos: PropTypes.array.isRequired,
 };
 
 export default EditModal;

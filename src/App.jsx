@@ -8,6 +8,7 @@ import Cabecera from "./components/Cabecera/Cabecera";
 import Pie from "./components/Pie/Pie";
 import axios from "axios";
 import { VideoProvider } from "./Contexts/VideoContext"; // Asegúrate de importar VideoProvider
+import PageNotFound from "./Pages/NotFound/PageNotFound";
 
 const App = () => {
   const [videos, setVideos] = useState([]);
@@ -15,7 +16,7 @@ const App = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await axios.get("/Api/videos");
+        const response = await axios.get("/Api/Api");
         setVideos(response.data);
       } catch (error) {
         console.error("Error al cargar los videos:", error);
@@ -32,6 +33,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Inicio videos={videos} />} />
             <Route path="/agregar-video" element={<AgregarVideoPage />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </main>
         <Pie />

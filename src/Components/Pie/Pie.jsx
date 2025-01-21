@@ -12,7 +12,7 @@ function Pie() {
       {/* Pantallas grandes: Texto con logo */}
       <div className={styles.desktopFooter}>
         <h2>
-          Desarrollado por <img src={logo} alt="Alura" />
+          Desarrollado por <img src={logo} alt="Alura" y CarlosQ />
         </h2>
       </div>
 

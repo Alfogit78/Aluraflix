@@ -1,28 +1,20 @@
 /** @format */
 
+// DeleteModal.jsx
 import React from "react";
 import PropTypes from "prop-types";
-import { FaTimes } from "react-icons/fa"; // Ícono de cierre
-import styles from "./DeleteModal.module.css"; // Estilos del modal
+import { FaTimes } from "react-icons/fa";
+import styles from "./DeleteModal.module.css";
+import { deleteVideo } from "../../../Api/Api";
 
 const DeleteModal = ({ videoId, onClose, onDelete }) => {
   const handleDelete = async () => {
     try {
-      const response = await fetch(
-        `https://678d6e91f067bf9e24ea4990.mockapi.io/api/v1/videos/${videoId}`,
-        {
-          method: "DELETE",
-        }
-      );
-
-      if (response.ok) {
-        onDelete(videoId); // Notificar al componente padre que el video fue eliminado
-        onClose(); // Cerrar modal
-      } else {
-        console.error("Error al eliminar el video:", response.statusText);
-      }
+      await deleteVideo(videoId);
+      onDelete(videoId);
+      onClose();
     } catch (error) {
-      console.error("Error al conectar con la API:", error);
+      console.error("Error al eliminar el video:", error);
     }
   };
 
@@ -30,7 +22,10 @@ const DeleteModal = ({ videoId, onClose, onDelete }) => {
     <div className={styles.modal}>
       <div className={styles.modalContent}>
         <FaTimes className={styles.closeIcon} onClick={onClose} />
-        <h2>¿Seguro que quieres eliminar este video?</h2>
+        <h2>
+          ¿Vas a eliminar video? Si es destacado recuerda asignar otro en
+          Editar.
+        </h2>
         <div className={styles.formButtons}>
           <button className="button-delete" onClick={handleDelete}>
             Eliminar

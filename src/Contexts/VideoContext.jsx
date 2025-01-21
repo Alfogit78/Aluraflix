@@ -2,11 +2,11 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 import {
-  getCategorias, // Llamada a MockAPI para obtener categorías
-  getVideos, // Llamada a MockAPI para obtener videos
-  addVideo, // Llamada a MockAPI para agregar video
-  updateVideo, // Llamada a MockAPI para actualizar video
-  deleteVideo, // Llamada a MockAPI para eliminar video
+  getCategorias,
+  getVideos,
+  addVideo,
+  updateVideo,
+  deleteVideo,
 } from "../../Api/Api";
 
 const VideoContext = createContext();
@@ -121,10 +121,12 @@ export const VideoProvider = ({ children }) => {
     <VideoContext.Provider
       value={{
         videos,
+        setVideos, // Se exporta setVideos también
         categorias,
         loading,
         error,
         videoDestacado,
+        setVideoDestacado, //Se exporta setVideoDestacado
         addNewVideo,
         updateExistingVideo,
         removeVideo,

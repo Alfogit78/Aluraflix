@@ -2,14 +2,14 @@
 
 import React from "react";
 import styles from "./Banner.module.css";
-import bannerImage from "../../assets/banner.jpg"; // Imagen de fondo predeterminada
+import bannerImage from "../../assets/banner.jpg";
 
 const Banner = ({
   titulo = "",
   descripcion = "",
   categoria = "",
   urlImagen = "",
-  color = "transparent", // Recibe el color para el cuadro de relleno
+  color = "transparent",
   overlayOpacity = 0.5,
 }) => {
   return (
@@ -28,14 +28,14 @@ const Banner = ({
         }}
       ></div>
 
-      {/* Contenido del banner */}
+      {/* Contenido de banner */}
       <div className={styles.bannerContent}>
         {/* Categoría */}
         {categoria && (
           <div
             className={styles.bannerCategory}
             style={{
-              backgroundColor: color, // Aplicar el color de la categoría
+              backgroundColor: color, // color de la categoría
               padding: "5px 10px",
               borderRadius: "20px",
               color: "white",

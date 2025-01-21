@@ -5,14 +5,16 @@ import EditModal from "../../components/EditModal/EditModal";
 import DeleteModal from "../../components/DeleteModal/DeleteModal";
 import { useVideos } from "../../contexts/VideoContext";
 import Banner from "../../components/Banner/index";
-import VideoList from "../../pages/videolist/VideoList"; // Importamos el nuevo componente
+import VideoList from "../../pages/videolist/VideoList";
 import "./Inicio.css";
 
 function Inicio() {
   const {
     videos,
+    setVideos,
     categorias,
     videoDestacado,
+    setVideoDestacado,
     updateExistingVideo,
     removeVideo,
   } = useVideos();
@@ -71,6 +73,30 @@ function Inicio() {
     try {
       await updateExistingVideo(updatedVideo.id, updatedVideo);
       console.log("Video actualizado correctamente:", updatedVideo);
+
+      // Actualizar el estado de videos
+      setVideosPorCategoria((prev) => {
+        const newVideosPorCategoria = { ...prev };
+        Object.keys(newVideosPorCategoria).forEach((categoria) => {
+          newVideosPorCategoria[categoria] = newVideosPorCategoria[
+            categoria
+          ].map((video) =>
+            video.id === updatedVideo.id ? updatedVideo : video
+          );
+        });
+        return newVideosPorCategoria;
+      });
+
+      // Actualizar el estado del video destacado
+      if (updatedVideo.destacado) {
+        const newVideos = videos.map((video) =>
+          video.id === updatedVideo.id ?
+            updatedVideo
+          : { ...video, destacado: false }
+        );
+        setVideos(newVideos);
+        setVideoDestacado(updatedVideo);
+      }
     } catch (error) {
       console.error("Error al actualizar el video:", error);
     } finally {
@@ -83,6 +109,26 @@ function Inicio() {
     try {
       await removeVideo(id);
       console.log(`Video eliminado correctamente con ID ${id}`);
+
+      // Actualizar el estado de videos después de la eliminación
+      setVideosPorCategoria((prev) => {
+        const newVideosPorCategoria = { ...prev };
+        Object.keys(newVideosPorCategoria).forEach((categoria) => {
+          newVideosPorCategoria[categoria] = newVideosPorCategoria[
+            categoria
+          ].filter((video) => video.id !== id);
+        });
+        return newVideosPorCategoria;
+      });
+
+      // Actualizar el estado del video destacado
+      if (videoDestacado && videoDestacado.id === id) {
+        const newVideos = videos.filter((video) => video.id !== id);
+        const nuevoDestacado =
+          newVideos.find((video) => video.destacado) || null;
+        setVideos(newVideos);
+        setVideoDestacado(nuevoDestacado);
+      }
     } catch (error) {
       console.error("Error al eliminar el video:", error);
     } finally {
@@ -175,6 +221,7 @@ function Inicio() {
             categorias={categorias}
             onClose={() => setIsEditModalOpen(false)}
             onSave={handleSaveEdit}
+            videos={videos} // Pasamos la lista de videos a EditModal
           />
         )}
 

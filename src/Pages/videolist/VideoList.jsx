@@ -18,7 +18,7 @@ function VideoList({
   useEffect(() => {
     // Ajustar el scroll al iniciar
     if (containerRef.current) {
-      containerRef.current.scrollLeft = 1; // Desplazamiento de 10px desde el inicio
+      containerRef.current.scrollLeft = 1; // Ajustar scroll
     }
   }, [videos]);
 

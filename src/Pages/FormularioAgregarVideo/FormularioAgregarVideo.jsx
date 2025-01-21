@@ -11,7 +11,7 @@ import {
   Switch,
   Alert,
 } from "@mui/material";
-import { getCategorias } from "../../../Api/Api"; // Función que consulta MockAPI
+import { getCategorias } from "../../../Api/Api"; 
 import { v4 as uuidv4 } from "uuid";
 import "./FormularioAgregarVideo.css";
 

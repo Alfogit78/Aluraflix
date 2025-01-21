@@ -98,67 +98,74 @@ textarea {
   color: #f44336; /* Color rojo al pasar el cursor */
 }
 
-/* Responsive Design */
+.confirmacion {
+  margin-top: 15px;
+  padding: 10px;
+  color: #28a745; /* Color verde para éxito */
+  background-color: #d4edda; /* Fondo verde claro */
+  border: 1px solid #c3e6cb; /* Borde verde claro */
+  border-radius: 5px;
+  text-align: center;
+}
 
-/* Para pantallas pequeñas (max-width: 768px) */
+/* Responsive */
+
 @media (max-width: 768px) {
   .modal {
-    max-width: 90%; /* Reducir el ancho en pantallas pequeñas */
-    padding: 15px; /* Ajustar el padding interno */
-    border-radius: 8px; /* Ajustar bordes redondeados */
+    max-width: 90%;
+    padding: 15px;
+    border-radius: 8px;
   }
 
   h2 {
-    font-size: 1.2rem; /* Reducir el tamaño del título */
+    font-size: 1.2rem;
   }
 
   input,
   textarea,
   select {
-    font-size: 0.9rem; /* Reducir tamaño de texto */
-    padding: 8px; /* Reducir espaciado interno */
+    font-size: 0.9rem;
+    padding: 8px;
   }
 
   .buttons {
-    flex-direction: column; /* Los botones se apilan verticalmente */
-    gap: 10px; /* Ajustar el espacio entre botones */
+    flex-direction: column;
+    gap: 10px;
   }
 
   .saveButton,
   .resetButton {
-    max-width: 100%; /* Los botones ocupan todo el ancho disponible */
-    padding: 10px; /* Ajustar espaciado interno */
+    max-width: 100%;
+    padding: 10px;
   }
 }
 
-/* Para pantallas medianas (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .modal {
-    max-width: 75%; /* Ajustar el ancho */
-    padding: 20px; /* Espaciado interno adecuado */
+    max-width: 75%;
+    padding: 20px;
     border-radius: 10px;
   }
 
   .buttons {
-    gap: 15px; /* Espaciado más uniforme */
+    gap: 15px;
   }
 
   .saveButton,
   .resetButton {
-    max-width: 200px; /* Limitar el tamaño en tabletas */
+    max-width: 200px;
   }
 }
 
-/* Para pantallas grandes (más de 1024px) */
 @media (min-width: 1024px) {
   .modal {
-    max-width: 500px; /* Mantener el tamaño estándar */
+    max-width: 500px;
     padding: 25px;
   }
 
   .saveButton,
   .resetButton {
-    max-width: 150px; /* Ancho definido */
+    max-width: 150px;
     padding: 12px 20px;
   }
 }
