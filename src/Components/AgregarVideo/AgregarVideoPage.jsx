@@ -1,8 +1,8 @@
 /** @format */
 
 import React from "react";
-import { useVideos } from "../../contexts/VideoContext";
-import FormularioAgregarVideo from "../../pages/FormularioAgregarVideo/FormularioAgregarVideo";
+import { useVideos } from "../../Contexts/VideoContext";
+import FormularioAgregarVideo from "../../Pages/FormularioAgregarVideo/FormularioAgregarVideo";
 import "./AgregarVideoPage.css";
 
 const AgregarVideoPage = () => {
