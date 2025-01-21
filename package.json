@@ -8,8 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist",
-    "predeploy": "npm run build"
+    "deploy": "vite build"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -45,7 +44,7 @@
     "gh-pages": "^6.3.0",
     "globals": "^15.14.0",
     "prettier": "^3.4.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.10"
   },
   "engines": {
     "node": "18.x"
