@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Inicio from "./pages/Inicio/inicio";
+import Inicio from "./Pages/Inicio/inicio";
 import AgregarVideoPage from "./components/AgregarVideo/AgregarVideoPage";
 import Cabecera from "./components/Cabecera/Cabecera";
 import Pie from "./components/Pie/Pie";
